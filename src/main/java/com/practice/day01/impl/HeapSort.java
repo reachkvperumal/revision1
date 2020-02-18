@@ -73,10 +73,12 @@ public class HeapSort<T extends Comparable<T>> {
     }
 
     public T delete() {
-        swap(0, this.size - 1);
-        T t = this.heap[this.size - 1];
-        this.heap[this.size - 1] = null;
-        --this.size;
+        T t = this.heap[0];
+        int pos = this.size--;
+        swap(0, pos - 1);
+        T[] tmp = this.heap;
+        this.heap = (T[]) new Comparable[this.size];
+        System.arraycopy(tmp, 0, this.heap, 0, this.size);
         this.sort();
         return t;
     }
@@ -105,5 +107,11 @@ public class HeapSort<T extends Comparable<T>> {
 
         System.out.println(strHeap.delete());
         System.out.println(strHeap);
+
+        System.out.println(strHeap.delete());
+        System.out.println(strHeap);
+
+        System.out.println(Arrays.toString(heap.heap));
+
     }
 }
