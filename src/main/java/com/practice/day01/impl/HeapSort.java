@@ -49,7 +49,7 @@ public class HeapSort<T extends Comparable<T>> {
 
     private void sort() {
         int n = this.size;
-        for (int i = size / 2 - 1; i >= 0; i--) {
+        for (int i = n / 2 - 1; i >= 0; i--) {
             heapify(n, i);
         }
 
