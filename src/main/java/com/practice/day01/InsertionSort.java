@@ -1,5 +1,7 @@
 package com.practice.day01;
 
+import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class InsertionSort {
@@ -21,6 +23,9 @@ public class InsertionSort {
     public static void main(String[] args) {
         int[] input = {6, 3, 9, 2, 4, 1, 7, 5};
         compute(input, input.length);
+        List<Integer> list = IntStream.of(input).boxed().collect(Collectors.toList());
+        System.out.println(list);
         IntStream.of(input).forEach(System.out::println);
+
     }
 }

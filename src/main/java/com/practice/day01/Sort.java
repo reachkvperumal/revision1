@@ -1,7 +1,7 @@
 package com.practice.day01;
 
+import java.util.Arrays;
 import java.util.Random;
-import java.util.stream.IntStream;
 
 public interface Sort {
     void sort(int[] arr);
@@ -17,6 +17,6 @@ public interface Sort {
     }
 
     static void print(int[] arr) {
-        IntStream.of(arr).forEach(System.out::println);
+        System.out.println(Arrays.toString(arr));
     }
 }

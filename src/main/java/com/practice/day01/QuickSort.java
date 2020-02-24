@@ -9,7 +9,7 @@ public class QuickSort implements Sort {
         int pivot = arr[start];
         int left = start;
         for (int i = start + 1; i <= end; i++) {
-            if (arr[i] < pivot) {
+            if (arr[i] > pivot) {
                 left++;
                 Sort.swap(arr, left, i);
             }
@@ -26,16 +26,16 @@ public class QuickSort implements Sort {
     }
 
     public static void main(String[] args) {
-        int[] input0 = Sort.generateRandomNumbers(0x7ffff);
-        //int[] input1 = {93, 12, 56, 68, 29, 18, 23, 54, 88, 32, 40, 46, 65, 79, 14, 69, 56, 57, 50, 15, 30, 49, 88, 85, 6, 32, 6, 8, 61, 31, 32, 33, 48, 34, 57, 18, 98, 59, 24, 41};
+        //int[] input0 = Sort.generateRandomNumbers(0x7ffff);
+        int[] input1 = {93, 12, 56, 68, 29, 18, 23, 54, 88, 32, 40, 46, 65, 79, 14, 69, 56, 57, 50, 15, 30, 49, 88, 85, 6, 32, 6, 8, 61, 31, 32, 33, 48, 34, 57, 18, 98, 59, 24, 41};
         QuickSort sort = new QuickSort();
 
-        sort.sort(input0);
-        //sort.sort(input1);
-        Sort.print(input0);
-        //Sort.print(input1);
+        //sort.sort(input0);
+        sort.sort(input1);
+//        Sort.print(input0);
+        Sort.print(input1);
 
-        System.out.println(0x7ffff);
+        //   System.out.println(0x7ffff);
 
     }
 
