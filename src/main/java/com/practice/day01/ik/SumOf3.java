@@ -40,5 +40,6 @@ public class SumOf3 {
         int[] j = {-7, -5, -3, -99, -245};
         System.out.println(Arrays.toString(findZeroSum(i)));
         System.out.println(Arrays.toString(findZeroSum(j)));
+
     }
 }
