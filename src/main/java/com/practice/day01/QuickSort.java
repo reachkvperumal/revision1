@@ -1,15 +1,17 @@
 package com.practice.day01;
 
-import java.util.concurrent.ThreadLocalRandom;
+import java.util.Random;
 
 public class QuickSort implements Sort {
     static void sortHelper(int[] arr, int start, int end) {
         if (start >= end) return;
-        Sort.swap(arr, start, ThreadLocalRandom.current().nextInt(start, end + 1));
+        int i1 = new Random().nextInt((end - start) + 1) + start;
+        //Sort.swap(arr, start, ThreadLocalRandom.current().nextInt(start, end + 1));
+        Sort.swap(arr, start, i1);
         int pivot = arr[start];
         int left = start;
         for (int i = start + 1; i <= end; i++) {
-            if (arr[i] > pivot) {
+            if (arr[i] < pivot) {
                 left++;
                 Sort.swap(arr, left, i);
             }
@@ -27,7 +29,8 @@ public class QuickSort implements Sort {
 
     public static void main(String[] args) {
         //int[] input0 = Sort.generateRandomNumbers(0x7ffff);
-        int[] input1 = {93, 12, 56, 68, 29, 18, 23, 54, 88, 32, 40, 46, 65, 79, 14, 69, 56, 57, 50, 15, 30, 49, 88, 85, 6, 32, 6, 8, 61, 31, 32, 33, 48, 34, 57, 18, 98, 59, 24, 41};
+        // int[] input1 = {93, 12, 56, 68, 29, 18, 23, 54, 88, 32, 40, 46, 65, 79, 14, 69, 56, 57, 50, 15, 30, 49, 88, 85, 6, 32, 6, 8, 61, 31, 32, 33, 48, 34, 57, 18, 98, 59, 24, 41};
+        int[] input1 = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
         QuickSort sort = new QuickSort();
 
         //sort.sort(input0);

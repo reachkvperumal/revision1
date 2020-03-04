@@ -12,6 +12,13 @@ import static org.junit.jupiter.api.Assertions.*;
 public class SortTest {
 
     @Test
+    public void testIntMin() {
+        Integer i = Integer.MIN_VALUE;
+        int f = 0x80000000;
+        assertTrue(i.compareTo(f) == 0);
+    }
+
+    @Test
     public void fibTest() {
 
         //Stream.iterate(new Long[]{0l, 1l}, a -> new Long[]{a[1], a[0] + a[1]}).limit(20).forEach(a -> System.out.println(a[0]));
@@ -114,5 +121,21 @@ public class SortTest {
             }
         }
         return isMinHeap;
+    }
+
+    static boolean isMatch(String s, String p) {
+        boolean[][] result = new boolean[s.length()][p.length()];
+        result[s.length()][p.length()] = true;
+
+        for (int i = s.length(); i >= 0; i--) {
+            for (int j = p.length() - 1; j >= 0; j--) {
+                boolean firstMatch = i < s.length() && (s.charAt(i) == p.charAt(j) || p.charAt(j) == '.');
+                if (j + 1 < p.length() && p.charAt(j + 1) == '*')
+                    result[i][j] = result[i][j + 2] || firstMatch && result[i + 1][j];
+                else
+                    result[i][j] = firstMatch && result[i + 1][j + 1];
+            }
+        }
+        return result[0][0];
     }
 }
