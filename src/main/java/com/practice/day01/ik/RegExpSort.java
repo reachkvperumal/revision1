@@ -10,7 +10,7 @@ public class RegExpSort {
             for (int j = p.length() - 1; j >= 0; j--) {
                 boolean anyMatch = i < s.length() && (s.charAt(i) == p.charAt(j) || p.charAt(j) == '.');
                 if (j + 1 < p.length() && p.charAt(j + 1) == '*')
-                    T[i][j] = T[i][j + 2] || anyMatch && T[i + 1][j];
+                    T[i][j] = T[i][j + 2] || (anyMatch && T[i + 1][j]);
                 else
                     T[i][j] = anyMatch && T[i + 1][j + 1];
             }
