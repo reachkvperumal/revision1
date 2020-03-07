@@ -15,7 +15,7 @@ public class DutchFlagSort {
         int size = balls.length;
         int start = 0, mid = 0;
         int end = size - 1;
-        char tmp = '\0';
+        //char tmp = '\0';
 
 
         while (mid <= end) {
