@@ -72,8 +72,10 @@ public class ProductArray {
         int[] arr1 = {-1000000000, -1000000000};
 
         System.out.println(Arrays.toString(getProductArray(arr1)));
-        System.out.println((int) (Math.pow(10, 9) + 7));
-        System.out.println(-0x7fff);
+      /*  System.out.println((int) (Math.pow(10, 9) + 7));
+        System.out.println(-0x7fff);*/
+        int[] arr2 = {1, 2, 3, 4};
+        System.out.println(Arrays.toString(getProductArray(arr2)));
     }
 
 }
