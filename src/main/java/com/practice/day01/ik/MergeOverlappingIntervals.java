@@ -3,7 +3,6 @@ package com.practice.day01.ik;
 
 import java.util.ArrayDeque;
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.Deque;
 
 public class MergeOverlappingIntervals {
@@ -33,12 +32,7 @@ public class MergeOverlappingIntervals {
 
     static int[][] getOverlap(Interval[] arr) {
         int[][] result = null;
-        Arrays.sort(arr, new Comparator<Interval>() {
-            @Override
-            public int compare(Interval o1, Interval o2) {
-                return o1.getStart() - o2.getStart();
-            }
-        });
+        Arrays.sort(arr, (i1, i2) -> i1.getStart() - i2.getStart());
         Deque<Interval> deque = new ArrayDeque<>();
         deque.offerFirst(arr[0]);
         for (int i = 1; i < arr.length; i++) {
@@ -65,10 +59,13 @@ public class MergeOverlappingIntervals {
 
     public static void main(String[] args) {
         int[][] arr = {{1, 3}, {5, 7}, {2, 4}, {6, 8}};
-        int size = arr.length;
-        Interval[] intervals = new Interval[size];
+        //int size = arr.length;
+
+        Interval[] intervals = Arrays.stream(arr).map(Interval::new).toArray(Interval[]::new);
+
+        /*Interval[] intervals = new Interval[size];
         for (int i = 0; i < arr.length; i++)
-            intervals[i] = new Interval(arr[i]);
+            intervals[i] = new Interval(arr[i]);*/
 
         int[][] overlap = getOverlap(intervals);
         for (int i = 0; i < overlap.length; i++)
