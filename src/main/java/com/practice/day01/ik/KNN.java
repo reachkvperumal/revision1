@@ -58,14 +58,13 @@ public class KNN {
     }
 
     private static int split(Point[] points, int left, int right) {
-        Point pivot = points[left];
+        Point p = points[left];
         int i = left, j = right + 1;
         while (true) {
-            while (i < right && points[++i].compareTo(pivot) < 0) ;
-            while (j > left && points[--j].compareTo(pivot) > 0) ;
+            while (i < right && points[++i].compareTo(p) < 0) ;
+            while (j > left && points[--j].compareTo(p) > 0) ;
             if (i >= j)
                 break;
-
             swap(points, i, j);
         }
         swap(points, j, left);
