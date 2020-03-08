@@ -1,0 +1,28 @@
+package com.practice.day01.ik.sorting.insertion;
+
+import com.practice.day01.ik.sorting.Sort;
+
+import java.util.Arrays;
+
+public class IterativeInsertionSortImpl implements Sort {
+
+    @Override
+    public void sort(int[] arr) {
+        for (int i = 1; i < arr.length; i++) {
+            int v = arr[i];
+            int j = i;
+            while (j > 0 && arr[j - 1] > v) {
+                arr[j] = arr[j - 1];
+                j--;
+            }
+            arr[j] = v;
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {3, 8, 5, 4, 1, 9, -2};
+
+        new IterativeInsertionSortImpl().sort(arr);
+        System.out.println(Arrays.toString(arr));
+    }
+}
