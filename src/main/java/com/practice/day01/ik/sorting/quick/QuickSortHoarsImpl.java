@@ -23,6 +23,7 @@ public class QuickSortHoarsImpl implements Sort {
             do {
                 j--;
             } while (arr[j] > pivot);
+
             if (i < j)
                 Sort.swap(arr, i, j);
             else
