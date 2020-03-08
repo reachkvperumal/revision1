@@ -21,12 +21,7 @@ public class MergeKSortPQ {
 
         @Override
         public int compareTo(HeapEntry o) {
-            int result = 0;
-            if (this.value < o.value)
-                result = -1;
-            else if (this.value > o.value)
-                result = 1;
-            return result;
+            return Integer.compare(this.value, o.value);
         }
     }
 
@@ -76,6 +71,12 @@ public class MergeKSortPQ {
                 {46, 39, 35, 33, 27, 19, 12, 9}, {33, 24, 22, 18, 18, 10, 3, 0}, {42, 35, 35, 30, 21, 20, 12, 9}, {42, 33, 24, 21, 12, 12, 8, 7},
                 {29, 23, 21, 18, 18, 11, 8, 7}, {35, 30, 30, 23, 15, 14, 8, 7}, {20, 18, 17, 16, 12, 11, 5, 4}
         };
+
+        int[][] arr1 = {{-1, 0, 12, 13, 141},
+                {-3, 2, 5, 7, 17},
+                {-9, -5, -2, 2, 19}
+        };
         System.out.println(Arrays.toString(mergeArrays(arr)));
+        System.out.println(Arrays.toString(mergeArrays(arr1)));
     }
 }
