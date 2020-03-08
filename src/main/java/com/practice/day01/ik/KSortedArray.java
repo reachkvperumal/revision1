@@ -5,6 +5,12 @@ import java.util.PriorityQueue;
 
 public class KSortedArray {
 
+    /**
+     * o(n log(k)) optimal way to sort a k sorted array.
+     *
+     * @param arr
+     * @param k
+     */
     static void sort(int[] arr, int k) {
         int n = arr.length;
         PriorityQueue<Integer> minHeap = new PriorityQueue<>();
