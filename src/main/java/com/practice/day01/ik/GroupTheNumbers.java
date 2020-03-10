@@ -24,6 +24,18 @@ public class GroupTheNumbers {
  */
 
 
+    static void wiggleSort(int[] arr) {
+        int i = 0, j = arr.length - 1;
+
+        while (i < j) {
+            if (arr[i] % 2 != 0) {
+                swap(arr, i, j);
+                j--;
+            } else
+                i++;
+        }
+    }
+
     /*
      * Complete the function below.
      */
@@ -45,5 +57,9 @@ public class GroupTheNumbers {
     public static void main(String[] args) {
         int[] a = {8, 4, 9, 5, 2, 9, 5, 7, 10};
         System.out.println(Arrays.toString(solve(a)));
+
+        int[] a1 = {8, 4, 9, 5, 2, 9, 5, 7, 10};
+        wiggleSort(a1);
+        System.out.println(Arrays.toString(a1));
     }
 }

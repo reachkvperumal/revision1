@@ -56,12 +56,42 @@ public class WordProblemTest {
         return result;
     }
 
+
+    private static class Words implements Comparable<Words> {
+
+        private String word;
+        private int frequency;
+
+        public Words(String w, int frequence) {
+            this.word = w;
+            this.frequency = frequence;
+        }
+
+        @Override
+        public int compareTo(Words o) {
+            if (this.frequency == o.frequency)
+                return o.word.compareTo(this.word);
+            else
+                return Integer.compare(this.frequency, o.frequency);
+
+        }
+
+
+    }
+
     @Test
     public void testMap() {
-        String[] s = {"word", "good", "best", "word"};
+        String[] s = {"the", "day", "is", "sunny", "the", "the", "the", "sunny", "is", "is"};
+        int k = 4;
+        List<String> wordsList = Arrays
+                .stream(s)
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+                .entrySet().stream().map(o -> new Words(o.getKey(), o.getValue().intValue()))
+                .collect(Collectors.toCollection(PriorityQueue::new)).stream().limit(k).sorted(Comparator.reverseOrder())
+                .map(o -> o.word).collect(Collectors.toList());
 
-        Map<String, Long> map = Arrays.stream(s).collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
-        System.out.println(map);
+        System.out.println(wordsList);
+
     }
 
     @Test
