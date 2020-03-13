@@ -2,6 +2,10 @@
 Interview Kickstart Revision V1
 ### https://www.programiz.com/dsa
 
+## FOR TREES PRACTICE
+## https://medium.com/@codingfreak/binary-tree-interview-questions-and-practice-problems-439df7e5ea1f
+
+
 ## Tech Stack
 * JDK 11.05
 
