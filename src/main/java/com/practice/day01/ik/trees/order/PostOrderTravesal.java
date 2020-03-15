@@ -1,4 +1,4 @@
-package com.practice.day01.ik.trees.sample;
+package com.practice.day01.ik.trees.order;
 
 import java.util.ArrayDeque;
 import java.util.Arrays;
@@ -16,6 +16,14 @@ public class PostOrderTravesal {
         }
     }
 
+    static void postOrderRecursive(TreeNode root) {
+        if (root == null)
+            return;
+        postOrderRecursive(root.left);
+        postOrderRecursive(root.right);
+        System.out.print(root.key + " ");
+    }
+
     static int[] postorderTraversal(TreeNode root) {
 
         if (root == null)
@@ -28,7 +36,6 @@ public class PostOrderTravesal {
         while (!deque.isEmpty()) {
             TreeNode poll = deque.poll();
             result.offerFirst(poll);
-            System.out.println(poll.key);
             if (poll.left != null)
                 deque.offerFirst(poll.left);
             if (poll.right != null)
@@ -48,8 +55,10 @@ public class PostOrderTravesal {
         x.right.right = new TreeNode(25);
         x.right.right.right = new TreeNode((35));
 
-        System.out.println(Arrays.toString(postorderTraversal(x)));
+        System.out.print(Arrays.toString(postorderTraversal(x)));
         int[] i = {8, 12, 10, 16, 35, 25, 20, 15};
+        System.out.println();
+        postOrderRecursive(x);
 
 
     }
