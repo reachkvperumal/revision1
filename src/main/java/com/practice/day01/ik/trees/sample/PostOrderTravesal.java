@@ -24,16 +24,17 @@ public class PostOrderTravesal {
         Deque<TreeNode> deque = new ArrayDeque<>();
         Deque<TreeNode> result = new ArrayDeque<>();
         deque.offer(root);
-
+        // 15, 10, 20, 16, 25,
         while (!deque.isEmpty()) {
             TreeNode poll = deque.poll();
             result.offerFirst(poll);
+            System.out.println(poll.key);
             if (poll.left != null)
                 deque.offerFirst(poll.left);
             if (poll.right != null)
                 deque.offerFirst(poll.right);
         }
-
+        //20, 25
         return result.stream().map(o -> o.key).mapToInt(Integer::intValue).toArray();
     }
 
@@ -48,6 +49,7 @@ public class PostOrderTravesal {
         x.right.right.right = new TreeNode((35));
 
         System.out.println(Arrays.toString(postorderTraversal(x)));
+        int[] i = {8, 12, 10, 16, 35, 25, 20, 15};
 
 
     }

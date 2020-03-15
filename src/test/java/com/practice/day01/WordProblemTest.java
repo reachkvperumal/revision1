@@ -105,5 +105,11 @@ public class WordProblemTest {
             i /= 10;
         }
         System.out.println(cur);
+
+        char c = 'z';
+        System.out.println(c - 'a');
     }
+
+
+
 }

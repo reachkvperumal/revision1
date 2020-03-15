@@ -16,7 +16,7 @@ public class MisingLong {
             b[pos] |= 1 << i % 8;
         }
 
-        for (int i = 0; i < arr.size(); i++) {
+        for (int i = 0; i < size; i++) {
             for (int j = 0; j < 8; j++) {
                 //identify the unset bit and return
                 if ((b[i] & 1 << j) == 0)
