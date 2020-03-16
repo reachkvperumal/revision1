@@ -19,19 +19,16 @@ public class SizeOfTreeIterative {
             return 0;
 
         Deque<Node> deque = new ArrayDeque<>();
-        deque.offer(root);
         int count = 0;
-        Node current = null;
-
+        deque.offer(root);
         while (!deque.isEmpty()) {
             int size = deque.size();
             while (size-- > 0) {
-                current = deque.poll();
+                Node current = deque.poll();
                 if (current.left != null)
                     deque.offer(current.left);
                 if (current.right != null)
                     deque.offer(current.right);
-
             }
             count++;
         }

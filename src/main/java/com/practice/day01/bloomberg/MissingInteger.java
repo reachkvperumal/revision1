@@ -45,7 +45,7 @@ public class MissingInteger {
     }
 
     public static void main(String[] args) {
-        int[] i = {1};
+        int[] i = {0, -1, 3, 1};
         System.out.println(findMissingInt(i));
         int[] j = {Integer.MIN_VALUE, -99, 0, 1, 22, 23};
         System.out.println(findMissingInt(j));
