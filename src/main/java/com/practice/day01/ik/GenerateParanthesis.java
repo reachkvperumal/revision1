@@ -5,18 +5,19 @@ import java.util.List;
 
 public class GenerateParanthesis {
 
-    static void compute(List<String> result, String cur, int open, int close, int max) {
 
-        if (cur.length() == max * 2) {
+    static void compute(List<String> result, String cur, int start, int end, int max) {
+        if (max * 2 == cur.length()) {
             result.add(cur);
             return;
         } else {
-            if (open < max)
-                compute(result, cur + "(", open + 1, close, max);
+            if (start < max)
+                compute(result, cur + "(", start + 1, end, max);
 
-            if (close < open)
-                compute(result, cur + ")", open, close + 1, max);
+            if (end < start)
+                compute(result, cur + ")", start, end + 1, max);
         }
+
     }
 
     static List<String> generate(int n) {

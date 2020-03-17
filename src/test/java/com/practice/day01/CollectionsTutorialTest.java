@@ -14,5 +14,13 @@ public class CollectionsTutorialTest {
         queue.add(2);
         queue.add(3);
         System.out.println(queue);
+
+        int z = 2, y = 4, x = 3, carry = 0;
+
+        int sum = carry + x + y;
+        carry = sum / 10;
+        int t = sum % 10;
+
+
     }
 }
