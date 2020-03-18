@@ -33,7 +33,7 @@ public class InOrderTravesal {
                 deque.offerFirst(current);
                 current = current.left_ptr;
             } else {
-                current = deque.removeFirst();
+                current = deque.pollFirst();
                 result.offer(current);
                 current = current.right_ptr;
             }
@@ -54,6 +54,5 @@ public class InOrderTravesal {
         //8 10 12 15 16 20 25 35
         System.out.println(Arrays.toString(inOrderIterative(x)));
         inOrderRecursive(x);
-
     }
 }

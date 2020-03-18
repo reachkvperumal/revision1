@@ -9,7 +9,6 @@ public class FirstAndLastBS {
         while (start <= end) {
             // int mid = start + (end - start) / 2;
             int mid = (start + end) >>> 1;
-            System.out.println(mid + " -  " + start + (end - start) / 2);
             if (nums[mid] == target) {
                 first = mid;
                 break;

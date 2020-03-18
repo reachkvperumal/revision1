@@ -34,7 +34,7 @@ public class PostOrderTravesal {
         deque.offer(root);
         // 15, 10, 20, 16, 25,
         while (!deque.isEmpty()) {
-            TreeNode poll = deque.poll();
+            TreeNode poll = deque.pollFirst();
             result.offerFirst(poll);
             if (poll.left != null)
                 deque.offerFirst(poll.left);
