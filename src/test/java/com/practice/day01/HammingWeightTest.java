@@ -38,4 +38,10 @@ public class HammingWeightTest {
         nums[i] = nums[j];
         nums[j] = t;
     }
+
+    @Test
+    public void righShiftTest() {
+        System.out.println(6 / 2);
+        System.out.println(6 >>> 1);
+    }
 }
