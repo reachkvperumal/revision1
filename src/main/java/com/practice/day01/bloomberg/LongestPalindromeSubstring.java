@@ -20,7 +20,7 @@ public class LongestPalindromeSubstring {
                     result = s.substring(i, j + 1);
                 }
             }
-            System.out.println();
+          //  System.out.println();
         }
 
         return result;
