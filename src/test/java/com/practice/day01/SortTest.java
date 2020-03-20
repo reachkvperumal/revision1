@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.concurrent.ThreadLocalRandom;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -70,6 +72,18 @@ public class SortTest {
         }
         return true;
     }
+
+    @Test
+    public void firstNotRepeatTest() {
+        String test = "abcabcxyzxyzikv";
+        Map<Character, Integer> map = new LinkedHashMap<>();
+        for (char c : test.toCharArray()) {
+            map.put(c, map.getOrDefault(c, 0) + 1);
+        }
+        System.out.println(map);
+        assertEquals('i', map.entrySet().stream().filter(o -> o.getValue().intValue() == 1).findFirst().map(o -> o.getKey()).get());
+    }
+
 
     private boolean isPrime(int n) {
         if (n <= 1) return false;
