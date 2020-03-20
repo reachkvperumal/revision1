@@ -12,7 +12,7 @@ public class SortCharacter {
         for (Character c : arr)
             aux[c]++;
 
-        System.out.println(Arrays.toString(aux));
+       // System.out.println(Arrays.toString(aux));
         arr.clear();
         for (int i = 0; i < 128; i++) {
             for (int j = 0; j < aux[i]; j++)
