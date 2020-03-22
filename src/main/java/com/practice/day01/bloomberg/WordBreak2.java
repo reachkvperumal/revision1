@@ -66,8 +66,8 @@ public class WordBreak2 {
     }
 
     public static void main(String[] args) {
-        String s = "abcd";
-        List<String> dict = Arrays.asList("a", "abc", "b", "cd");
-        System.out.println(wordBreak(s, dict));
+        String s = "catsanddog";
+        List<String> dict = Arrays.asList("cat", "cats", "and", "sand", "dog");
+        System.out.println(wordBreakWIthMemory(s, dict));
     }
 }
