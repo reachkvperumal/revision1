@@ -28,10 +28,12 @@ public class TokKWords {
     static List<String> topKwords(String[] words, int count) {
 
         Map<String, Integer> map = new HashMap<>();
-        for (String key : words) {
+       /* for (String key : words) {
             map.computeIfPresent(key, (k, v) -> v + 1);
             map.computeIfAbsent(key, v -> 1);
-        }
+        }*/
+        for (String key : words)
+            map.put(key, map.getOrDefault(key, 0) + 1);
 
         PriorityQueue<Pair> pairs = map.entrySet()
                 .stream().map(k -> new Pair(k.getKey(), k.getValue()))
@@ -44,9 +46,12 @@ public class TokKWords {
     }
 
     public static void main(String[] args) {
+        //[the, is, sunny, day]
+        //[i, love]
         String[] words1 = {"the", "day", "is", "sunny", "the", "the", "the", "sunny", "is", "is"};
         System.out.println(topKwords(words1, 4));
         String[] words2 = {"i", "love", "leetcode", "i", "love", "coding"};
         System.out.println(topKwords(words2, 2));
+
     }
 }
