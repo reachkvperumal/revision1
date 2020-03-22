@@ -10,9 +10,9 @@ public class MaxRepeating {
             //arr[(arr[i] % k)] += k;
         }
 
-        System.out.println();
+    /*    System.out.println();
         for (int i : arr)
-            System.out.println(i);
+            System.out.println(i);*/
 
         // Find index of the maximum repeating element
         int max = arr[0], result = 0;

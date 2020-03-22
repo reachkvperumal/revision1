@@ -1,7 +1,6 @@
 package com.practice.day01.ik.sorting.heap;
 
 import com.practice.day01.ik.sorting.Sort;
-import com.practice.day01.ik.sorting.selection.SelectionSortImpl;
 
 public class HeapSortImpl implements Sort {
 
@@ -15,8 +14,8 @@ public class HeapSortImpl implements Sort {
      */
     private void heapify(int[] arr, int n, int i) {
         int largest = i;
-        int leftPos = 2 * n + 1;
-        int rightPos = 2 * n + 2;
+        int leftPos = 2 * i + 1;
+        int rightPos = 2 * i + 2;
 
         if (leftPos < n && arr[leftPos] > arr[largest])
             largest = leftPos;
@@ -52,7 +51,7 @@ public class HeapSortImpl implements Sort {
 
     public static void main(String[] args) {
         int[] arr = {0, 8, 12, 45, -19, -111, 0x7fffffff, 6, 8, 6, 1};
-        new SelectionSortImpl().sort(arr);
+        new HeapSortImpl().sort(arr);
         Sort.print(arr);
     }
 }

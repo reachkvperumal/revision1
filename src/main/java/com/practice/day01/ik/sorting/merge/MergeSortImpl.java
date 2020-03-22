@@ -1,7 +1,6 @@
 package com.practice.day01.ik.sorting.merge;
 
 import com.practice.day01.ik.sorting.Sort;
-import com.practice.day01.ik.sorting.selection.SelectionSortImpl;
 
 import java.util.Arrays;
 
@@ -15,9 +14,13 @@ public class MergeSortImpl implements Sort {
      * @param end
      */
     private static void split(int[] arr, int start, int end) {
-        int mid = start + (end - start) / 2;
-        split(arr, start, mid);
-        split(arr, mid + 1, end);
+        if (start < end) {
+            //int mid = start + (end - start) / 2;
+            int mid = (start + end) >>> 1;
+            split(arr, start, mid);
+            split(arr, mid + 1, end);
+            sort(arr, start, mid, end);
+        }
     }
 
     /**
@@ -63,8 +66,11 @@ public class MergeSortImpl implements Sort {
     }
 
     public static void main(String[] args) {
-        int[] arr = {0, 8, 12, 45, -19, -111, 0x7fffffff, 6, 8, 6, 1};
-        new SelectionSortImpl().sort(arr);
+        int[] arr = {99, 9, 98, 97, 96, 95, 94, 93, 92, 91, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
+        new MergeSortImpl().sort(arr);
         Sort.print(arr);
+        int arr1[] = {0, 8, 12, 45, -19, -111, 0x7fffffff, 6, 8, 6, 1};
+        new MergeSortImpl().sort(arr1);
+        Sort.print(arr1);
     }
 }
