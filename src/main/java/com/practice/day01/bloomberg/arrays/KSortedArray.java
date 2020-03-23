@@ -1,4 +1,4 @@
-package com.practice.day01.ik;
+package com.practice.day01.bloomberg.arrays;
 
 import java.util.Arrays;
 import java.util.PriorityQueue;
