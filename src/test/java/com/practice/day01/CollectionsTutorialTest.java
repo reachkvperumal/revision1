@@ -2,8 +2,12 @@ package com.practice.day01;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Comparator;
 import java.util.LinkedList;
+import java.util.PriorityQueue;
 import java.util.Queue;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CollectionsTutorialTest {
 
@@ -20,7 +24,18 @@ public class CollectionsTutorialTest {
         int sum = carry + x + y;
         carry = sum / 10;
         int t = sum % 10;
+    }
 
+    @Test
+    public void priorityQueueTest() {
+        int[] items = {1, 2, 3, 4};
+        Queue<Integer> queue = new PriorityQueue<>(Comparator.reverseOrder());
+        int count = 0;
+        while (count < items.length)
+            queue.offer(items[count++]);
+
+        System.out.println(queue);
+        assertEquals(7, queue.stream().limit(2).mapToInt(o -> o).sum());
 
     }
 }
