@@ -42,22 +42,26 @@ public class ProductArray {
         return result;
     }
 
+    //leet code problem solution
     static int[] getProductArray(int[] nums) {
         int size = nums.length;
         int[] result = new int[size];
-        int mod = (int) Math.pow(10, 9) + 7;
+        // int mod = (int) Math.pow(10, 9) + 7;
 
         int left = 1;
         for (int i = 0; i < size; i++) {
             result[i] = left;
-            nums[i] = nums[i] > 0 ? nums[i] : (mod + nums[i]) % mod;
-            left = (int) ((left * 1l * nums[i]) % mod);
+            //    nums[i] = nums[i] > 0 ? nums[i] : (mod + nums[i]) % mod;
+//            left = (int) ((left * 1l * nums[i];//) % mod);
+            left = left * nums[i];
         }
 
         int right = 1;
         for (int i = size - 1; i >= 0; i--) {
-            result[i] = (int) ((result[i] * 1l * right) % mod);
-            right = (int) ((right * 1l * nums[i]) % mod);
+            //  result[i] = (int) ((result[i] * 1l * right) % mod);
+            result[i] = right * result[i];
+//            right = (int) ((right * 1l * nums[i]) % mod);
+            right = right * nums[i];
         }
 
         return result;
