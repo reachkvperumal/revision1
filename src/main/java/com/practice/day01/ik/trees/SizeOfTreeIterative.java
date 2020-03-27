@@ -46,5 +46,12 @@ public class SizeOfTreeIterative {
         x.right.right.right = new Node(35);
 
         System.out.println(height(x));
+
+        Node y = new Node(1);
+        y.left = new Node(2);
+        y.right = new Node(3);
+        y.left.left = new Node(4);
+        y.left.right = new Node(5);
+        System.out.println(height(y));
     }
 }
