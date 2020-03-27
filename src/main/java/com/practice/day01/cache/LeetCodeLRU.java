@@ -4,14 +4,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class LeetCodeLRU {
-    class DLinkedNode {
+    class Entry {
         int key;
         int value;
-        DLinkedNode prev;
-        DLinkedNode next;
+        Entry prev;
+        Entry next;
     }
 
-    private void addNode(DLinkedNode node) {
+    private void addNode(Entry node) {
         /**
          * Always add the new node right after head.
          */
@@ -22,18 +22,18 @@ public class LeetCodeLRU {
         head.next = node;
     }
 
-    private void removeNode(DLinkedNode node) {
+    private void removeNode(Entry node) {
         /**
          * Remove an existing node from the linked list.
          */
-        DLinkedNode prev = node.prev;
-        DLinkedNode next = node.next;
+        Entry prev = node.prev;
+        Entry next = node.next;
 
         prev.next = next;
         next.prev = prev;
     }
 
-    private void moveToHead(DLinkedNode node) {
+    private void moveToHead(Entry node) {
         /**
          * Move certain node in between to the head.
          */
@@ -41,28 +41,28 @@ public class LeetCodeLRU {
         addNode(node);
     }
 
-    private DLinkedNode popTail() {
+    private Entry popTail() {
         /**
          * Pop the current tail.
          */
-        DLinkedNode res = tail.prev;
+        Entry res = tail.prev;
         removeNode(res);
         return res;
     }
 
-    private Map<Integer, DLinkedNode> cache = new HashMap<>();
+    private Map<Integer, Entry> cache = new HashMap<>();
     private int size;
     private int capacity;
-    private DLinkedNode head, tail;
+    private Entry head, tail;
 
     public LeetCodeLRU(int capacity) {
         this.size = 0;
         this.capacity = capacity;
 
-        head = new DLinkedNode();
+        head = new Entry();
         // head.prev = null;
 
-        tail = new DLinkedNode();
+        tail = new Entry();
         // tail.next = null;
 
         head.next = tail;
@@ -70,7 +70,7 @@ public class LeetCodeLRU {
     }
 
     public int get(int key) {
-        DLinkedNode node = cache.get(key);
+        Entry node = cache.get(key);
         if (node == null) return -1;
 
         // move the accessed node to the head;
@@ -80,10 +80,10 @@ public class LeetCodeLRU {
     }
 
     public void put(int key, int value) {
-        DLinkedNode node = cache.get(key);
+        Entry node = cache.get(key);
 
         if (node == null) {
-            DLinkedNode newNode = new DLinkedNode();
+            Entry newNode = new Entry();
             newNode.key = key;
             newNode.value = value;
 
@@ -94,7 +94,7 @@ public class LeetCodeLRU {
 
             if (size > capacity) {
                 // pop the tail
-                DLinkedNode tail = popTail();
+                Entry tail = popTail();
                 cache.remove(tail.key);
                 --size;
             }
