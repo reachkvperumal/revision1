@@ -1,4 +1,4 @@
-package com.kv.concurrency;
+package com.kv.concurrency.implicit;
 
 
 public class ProducerConsumer {
