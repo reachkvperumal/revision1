@@ -8,7 +8,8 @@
     <artifactId>Revision-V1</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <dependencies>
+
+  <dependencies>
       <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
       <dependency>
         <groupId>org.apache.commons</groupId>
