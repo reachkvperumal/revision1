@@ -12,13 +12,13 @@ import java.util.stream.IntStream;
 
 public class AtomicCounter {
 
-  private static LongAdder counter = new LongAdder();
+  private static final LongAdder COUNTER = new LongAdder();
 
   private static class Increment implements Callable<Void> {
 
     @Override
     public Void call() {
-      IntStream.rangeClosed(1, 1_000).forEach(x -> counter.increment());
+      IntStream.rangeClosed(1, 1_000).forEach(x -> COUNTER.increment());
       return null;
     }
   }
@@ -27,7 +27,7 @@ public class AtomicCounter {
 
     @Override
     public Void call() {
-      IntStream.rangeClosed(1, 1_000).forEach(x -> counter.decrement());
+      IntStream.rangeClosed(1, 1_000).forEach(x -> COUNTER.decrement());
       return null;
     }
   }
@@ -49,7 +49,7 @@ public class AtomicCounter {
       }
 
     });
-    System.out.println(counter.sumThenReset());
+    System.out.println(COUNTER.sumThenReset());
 
     byte[] maxArray = new byte[Integer.MAX_VALUE - 2];
     System.out.println(maxArray.length);
