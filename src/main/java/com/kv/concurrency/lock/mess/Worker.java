@@ -9,6 +9,10 @@ import java.util.TimerTask;
 public class Worker extends Thread {
 
   private volatile boolean quittingTime = false;
+  /**
+   * Gloden rule in concurrent programming. Rule #1 never expose to outside the object you use to synchronize your code.
+   */
+
   private Object lock = new Object(); //without this lock in second synchronized block it will run in a infinite
 
   @Override
