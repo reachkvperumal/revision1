@@ -3,10 +3,13 @@ package com.kv.concurrency.lock.mess;
 import java.util.Timer;
 import java.util.TimerTask;
 
+/**
+ * From Java Puzzlers
+ */
 public class Worker extends Thread {
 
   private volatile boolean quittingTime = false;
-  private Object lock = new Object();
+  private Object lock = new Object(); //without this lock in second synchronized block it will run in a infinite
 
   @Override
   public void run() {
@@ -25,16 +28,16 @@ public class Worker extends Thread {
   }
 
   synchronized void quit() throws InterruptedException {
-    synchronized (lock) {
+    synchronized (lock) { //with this second synchronized block code execution is handled as expected.
       quittingTime = true;
       System.out.println("Calling join");
-      join();
+      join(); // this will release the key next line is never invoked.
       System.out.println("Back from join");
     }
   }
 
   synchronized void keepWorking() {
-    synchronized (lock) {
+    synchronized (lock) {//with this second synchronized block code execution is handled as expected.
       quittingTime = false;
       System.out.println("Keep working");
     }
@@ -45,7 +48,7 @@ public class Worker extends Thread {
     Worker worker = new Worker();
     worker.start();
 
-    Timer t = new Timer(true);
+    Timer t = new Timer(true); // this is a daemon thread will keep running forever.
     t.schedule(new TimerTask() {
       @Override
       public void run() {
