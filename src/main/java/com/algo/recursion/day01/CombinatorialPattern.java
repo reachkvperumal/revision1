@@ -5,30 +5,34 @@ import java.util.List;
 
 public class CombinatorialPattern {
 
-  static List<String> compute(String input) {
-
+  private static List<String> compute(String input) {
+    List<String> result = new ArrayList<>();
     if (input != null && input.length() > 0) {
-      List<String> result = new ArrayList<>();
       helper(input, 0, new char[input.length()], result);
-      return result;
     }
-
-    return null;
+    return result;
   }
 
-  static void helper(String input, int count, char[] buf, List<String> result) {
+  /**
+   * Time complexity: O(2^n+1 * n) Space Complexity: O(2^n * n + n^2)
+   *
+   * @param input
+   * @param count
+   * @param buf
+   * @param result
+   */
+  private static void helper(String input, int count, char[] buf, List<String> result) {
     if (input.length() == count) {
       result.add(new String(buf));
     } else {
       char c = input.charAt(count);
       if (Character.isAlphabetic(c)) {
-        buf[count] = Character.toLowerCase(c);
+        buf[count] = Character.toUpperCase(c);
         helper(input, count + 1, buf, result);
         buf[count] = Character.toUpperCase(c);
         helper(input, count + 1, buf, result);
-
       } else {
-        buf[count] = input.charAt(count);
+        buf[count] = c;
         helper(input, count + 1, buf, result);
       }
     }
