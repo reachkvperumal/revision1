@@ -108,11 +108,24 @@ public class RecursionFundamentals {
     if (n == 0) {
       return n;
     } else {
-      return n % 2 + 10 * decimalToBinary(n / 2);
+      //return n % 2 + 10 * decimalToBinary(n / 2);
+      return n % 2 + 10 * decimalToBinary(n >> 1);
     }
 
   }
 
+  private static void printBinaryform(int number) {
+    int remainder;
+
+    if (number <= 1) {
+      System.out.print(number);
+      return;
+    }
+
+    remainder = number % 2;
+    printBinaryform(number >> 1);
+    System.out.print(remainder);
+  }
 
   public static void main(String[] args) {
     System.out.println(square(6));
@@ -125,8 +138,10 @@ public class RecursionFundamentals {
 
     // System.out.println(isPrime(Integer.MAX_VALUE));
     System.out.println(isPrime(1_000_000_007));
-    System.out.println(decimalToBinary(9));
-    System.out.println(10 * (4 / 2));
+    System.out.println(decimalToBinary(9)); //1001
+    printBinaryform(9);
+    int j = 10;
+    System.out.println();
   }
 
 }
