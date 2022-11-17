@@ -4,8 +4,10 @@ import com.exception.ReadFunctionWithExceptionHdlr;
 import com.mashape.unirest.http.ObjectMapper;
 import com.exception.WriteFunctionWithExceptionHdlr;
 
+//@Component
 public class FunctionWithExceptionHdlrImpl {
 
+    //@Autowired
     private ObjectMapper objectMapper;
 
     public <T> String getJson(T request){
