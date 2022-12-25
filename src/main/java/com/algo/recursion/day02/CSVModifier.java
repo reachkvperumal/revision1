@@ -1,6 +1,8 @@
 package com.algo.recursion.day02;
 
 import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
+import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -19,6 +21,8 @@ public class CSVModifier {
         String targetDateTime = parsedDateTime.format(DateTimeFormatter.ofPattern(expectedDateTimeFormat));
         System.out.printf("Expected Date Time => %s%n", targetDateTime);
         System.out.printf("Now compare \"expectedDateTime\" with \"targetDateTime\" => %b%n", targetDateTime.equals(expectedDateTime));
+        System.out.println("-------------------------------");
+        worldTime();
     }
 
     private static String updateMonth(String srcDt){
@@ -31,6 +35,18 @@ public class CSVModifier {
             return result;
         }
         return srcDt;
+    }
+
+    private static void worldTime(){
+        String t1 = "2022-12-25T14:52:43.743644-05:00";
+        String f2 = "yyyy-MM-dd'T'HH:mm:ss.SSSSSSXXX";
+        String f1 = "MM/dd/yyyy HH:mm:ss a";
+
+        String format = ZonedDateTime.parse(t1).format(DateTimeFormatter.ofPattern(f1));
+        System.out.println(format);
+        System.out.println("-----------------------------------------------------------");
+        System.out.println(OffsetDateTime.parse(t1,DateTimeFormatter.ofPattern(f2)));
+
 
     }
 }
